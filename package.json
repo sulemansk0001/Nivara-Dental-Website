@@ -1,0 +1,23 @@
+{
+  "name": "nivara-dental-studio-monorepo",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Nivara Dental Studio - Premium Indian Dental Clinic Website & Management System",
+  "scripts": {
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && npm start",
+    "build:frontend": "cd frontend && npm run build",
+    "install:all": "cd frontend && npm install && cd ../backend && npm install"
+  },
+  "keywords": [
+    "dental-clinic",
+    "pune",
+    "healthcare",
+    "dentistry",
+    "react",
+    "express",
+    "framer-motion"
+  ],
+  "author": "Nivara Dental Studio",
+  "license": "ISC"
+}

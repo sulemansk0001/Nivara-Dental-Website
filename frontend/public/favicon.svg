@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <rect width="48" height="48" rx="12" fill="#172A43"/>
+  <path d="M24 10C17.3726 10 13 14.5 13 21C13 26 15 31.5 17 38C18 41 21 41 22 36C22.6 33 23.3 29 24 29C24.7 29 25.4 33 26 36C27 41 30 41 31 38C33 31.5 35 26 35 21C35 14.5 30.6274 10 24 10Z" fill="white" stroke="#E7EAF0" stroke-width="1.5"/>
+  <!-- Subtle warm smile curve -->
+  <path d="M19 22C20.8 25.5 27.2 25.5 29 22" stroke="#F36B32" stroke-width="2.5" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,545 @@
+import { Doctor, Service, CaseStudy, Testimonial, BlogPost, PricingPlan } from '../types';
+
+export const initialDoctors: Doctor[] = [
+  {
+    id: "doc-1",
+    name: "Dr. Priya Deshmukh",
+    qualification: "BDS, MDS (Oral Medicine & Radiology)",
+    specialisation: "General & Preventive Dentistry",
+    experience: "12+ Years Experience",
+    regNo: "MDC-28491",
+    profileImage: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=800",
+    description: "Dr. Priya Deshmukh is a senior dental surgeon with over a decade of clinical experience in comprehensive dental assessments, preventive care, and conservative dental restorations. Her gentle chairside demeanor and patient-first philosophy make anxious patients feel instantly at ease.",
+    daysAvailable: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+    consultationFee: "₹999",
+    languages: ["English", "Hindi", "Marathi"],
+    education: [
+      "BDS - Government Dental College & Hospital, Mumbai",
+      "MDS - Bharati Vidyapeeth Dental College, Pune",
+      "Fellowship in Aesthetic Dentistry (Germany)"
+    ],
+    status: "active"
+  },
+  {
+    id: "doc-2",
+    name: "Dr. Rohit Patil",
+    qualification: "BDS, MDS (Prosthodontics & Crown Bridge)",
+    specialisation: "Implantology & Full Mouth Rehabilitation",
+    experience: "10+ Years Experience",
+    regNo: "MDC-31902",
+    profileImage: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=800",
+    description: "Dr. Rohit Patil specializes in advanced dental implants, digital smile design, and complex full-arch rehabilitations. Certified in computer-guided keyhole implant surgery, he is dedicated to restoring full masticatory function and natural aesthetics.",
+    daysAvailable: ["Monday", "Wednesday", "Friday", "Saturday"],
+    consultationFee: "₹1,499",
+    languages: ["English", "Hindi", "Marathi"],
+    education: [
+      "BDS - Dr. D.Y. Patil Dental College, Pune",
+      "MDS in Prosthodontics - Nair Hospital Dental College, Mumbai",
+      "Diplomate - International Congress of Oral Implantologists (ICOI)"
+    ],
+    status: "active"
+  },
+  {
+    id: "doc-3",
+    name: "Dr. Sneha Kulkarni",
+    qualification: "BDS, MDS (Orthodontics & Dentofacial Orthopedics)",
+    specialisation: "Orthodontics & Clear Aligners",
+    experience: "9+ Years Experience",
+    regNo: "MDC-35214",
+    profileImage: "https://images.unsplash.com/photo-1594824813587-8c4656ec236b?auto=format&fit=crop&q=80&w=800",
+    description: "Dr. Sneha Kulkarni is a certified Clear Aligner provider and orthodontist focusing on precision teeth alignment for teenagers, young professionals, and adults. She combines digital 3D treatment simulations with biological orthodontics for optimal long-term results.",
+    daysAvailable: ["Tuesday", "Thursday", "Friday", "Sunday (By Appointment)"],
+    consultationFee: "₹1,200",
+    languages: ["English", "Hindi", "Marathi"],
+    education: [
+      "BDS - Sinhgad Dental College & Hospital, Pune",
+      "MDS in Orthodontics - Government Dental College, Aurangabad",
+      "Certified Platinum Invisalign Provider"
+    ],
+    status: "active"
+  }
+];
+
+export const initialServices: Service[] = [
+  {
+    id: "srv-1",
+    serviceName: "General Dentistry",
+    slug: "general-dentistry",
+    tagline: "Comprehensive oral care, cavity detection & preventive wellness",
+    shortDescription: "Essential dental examinations, composite fillings, digital X-rays, and customized preventative plans to protect your natural teeth.",
+    indicativePrice: "₹999",
+    image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&q=80&w=1000",
+    overview: "General dentistry forms the cornerstone of lifelong oral health. At Nivara Dental Studio, our thorough diagnostic examinations utilize low-radiation high-resolution digital sensors, intraoral cameras, and clinical loupes to detect issues in their earliest, most easily treatable stages.",
+    benefits: [
+      "Painless digital intraoral scanning with instant visual diagnostics",
+      "High-strength biocompatible composite resin restorations that match your exact tooth shade",
+      "Preventive fluoride varnish application and fissure sealants for lasting cavity resistance",
+      "Comprehensive periodontal gum screenings to arrest gingivitis early"
+    ],
+    suitableFor: [
+      "Patients needing a routine 6-month check-up and oral cancer screening",
+      "Individuals experiencing tooth sensitivity, chipped enamel, or mild toothache",
+      "Patients seeking tooth-colored restorations replacing old silver amalgam fillings"
+    ],
+    faqs: [
+      {
+        question: "How long does a general dental check-up take?",
+        answer: "A comprehensive initial examination, including digital intraoral imaging and clinical consultation, takes approximately 30 to 45 minutes."
+      },
+      {
+        question: "Are tooth-colored composite fillings durable?",
+        answer: "Yes, modern composite materials bond micro-mechanically to natural tooth enamel and dentin, with an expected lifespan of 7–10 years when maintained with good oral hygiene."
+      }
+    ],
+    status: "active"
+  },
+  {
+    id: "srv-2",
+    serviceName: "Cosmetic Dentistry",
+    slug: "cosmetic-dentistry",
+    tagline: "Artistic smile enhancements, porcelain veneers & aesthetic bonding",
+    shortDescription: "Elevate your smile's harmony with custom porcelain veneers, composite laminates, and minimally invasive smile sculpting.",
+    indicativePrice: "₹4,999",
+    image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=1000",
+    overview: "Cosmetic dentistry blends biological principles with artistic precision. We design custom treatment plans honoring your facial profile, lip dynamics, and tooth proportions, ensuring results that look naturally radiant rather than artificial.",
+    benefits: [
+      "Ultra-thin hand-layered porcelain veneers designed for maximum translucency",
+      "Minimally invasive composite bonding for minor chips and gaps in a single appointment",
+      "Digital Smile Design (DSD) preview allowing you to visualize results prior to treatment",
+      "Enamel-safe gingival contouring to correct gummy smiles"
+    ],
+    suitableFor: [
+      "Individuals with discolored, uneven, worn, or mildly misaligned front teeth",
+      "Patients seeking to close midline diastema (gap between front teeth)",
+      "Anyone desiring a confident, refreshed smile for weddings or public appearances"
+    ],
+    faqs: [
+      {
+        question: "Will veneers damage my natural teeth?",
+        answer: "Modern ultra-thin ceramic veneers require minimal to ultra-conservative preparation of approximately 0.3mm to 0.5mm of enamel, conserving maximum natural tooth structure."
+      },
+      {
+        question: "How long do porcelain veneers last?",
+        answer: "With routine check-ups and nightguard protection if you grind your teeth, ceramic veneers typically last 12 to 15 years."
+      }
+    ],
+    status: "active"
+  },
+  {
+    id: "srv-3",
+    serviceName: "Dental Implants",
+    slug: "dental-implants",
+    tagline: "Permanent tooth replacements that feel, function & look natural",
+    shortDescription: "Restore missing teeth permanently with medical-grade titanium implants, CBCT 3D planning, and precision zirconia crowns.",
+    indicativePrice: "₹24,999",
+    image: "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&q=80&w=1000",
+    overview: "Dental implants are the global gold standard for single, multiple, or full-mouth tooth replacement. By acting as artificial titanium tooth roots osseointegrated into your jawbone, they prevent bone resorption and preserve adjacent natural teeth without grinding.",
+    benefits: [
+      "100% biocompatible Grade-4/5 titanium implants with high osseointegration rates",
+      "Pre-surgical 3D CBCT digital planning ensuring millimeter-precise placement",
+      "Natural chewing efficiency equal to healthy original teeth",
+      "Permanent solution that protects adjacent healthy teeth from bridges"
+    ],
+    suitableFor: [
+      "Adults missing one or more natural teeth due to injury or deep decay",
+      "Denture wearers tired of loose, slipping prosthetics or dietary limitations",
+      "Patients needing full-arch rehabilitation (All-on-4 / All-on-6)"
+    ],
+    faqs: [
+      {
+        question: "Is dental implant surgery painful?",
+        answer: "The procedure is performed under gentle local anesthesia and is generally described by patients as less uncomfortable than a tooth extraction. Mild post-operative soreness is managed with standard medications."
+      },
+      {
+        question: "How long is the entire implant process?",
+        answer: "Osseointegration typically takes 8 to 12 weeks for bone fusion, followed by crown placement. In qualifying clinical conditions, immediate temporary loading is possible."
+      }
+    ],
+    status: "active"
+  },
+  {
+    id: "srv-4",
+    serviceName: "Root Canal Treatment",
+    slug: "root-canal-treatment",
+    tagline: "Single-sitting pain relief & preservation of infected natural teeth",
+    shortDescription: "Gentle, rotary endodontic therapy that relieves acute pain, eliminates infection, and saves your natural tooth from extraction.",
+    indicativePrice: "₹3,999",
+    image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=1000",
+    overview: "A root canal is an essential procedure designed to eliminate bacteria from the infected root canal system, prevent reinfection, and preserve the natural tooth. At Nivara, we use advanced cordless rotary motors, electronic apex locators, and warm vertical compaction for superior seal and comfort.",
+    benefits: [
+      "Rapid pain relief from irreversible pulpitis or acute periapical abscess",
+      "Advanced electronic apex locators ensuring 100% canal disinfection to the tip",
+      "Micro-endodontic rotary nickel-titanium files minimizing chairside time",
+      "Single-visit root canal options available for non-complex clinical cases"
+    ],
+    suitableFor: [
+      "Patients experiencing persistent throbbing toothache or nocturnal pain",
+      "Teeth sensitive to hot and cold liquids that lingers for seconds or minutes",
+      "Teeth with extensive deep cavities or traumatic hairline fractures"
+    ],
+    faqs: [
+      {
+        question: "Is root canal treatment really painful?",
+        answer: "Modern endodontics with profound local anesthesia makes the procedure completely painless. In fact, the treatment immediately alleviates the severe pain caused by infection."
+      },
+      {
+        question: "Do I always need a crown after a root canal?",
+        answer: "For posterior chewing teeth (molars and premolars), a dental crown is strongly recommended to protect the tooth from biting fractures."
+      }
+    ],
+    status: "active"
+  },
+  {
+    id: "srv-5",
+    serviceName: "Orthodontics & Braces",
+    slug: "orthodontics-braces",
+    tagline: "Precision alignment with clear aligners, ceramic & metal braces",
+    shortDescription: "Straighten crowded teeth, close gaps, and correct bite misalignment with discreet clear aligners or low-profile ceramic braces.",
+    indicativePrice: "₹28,000",
+    image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=1000",
+    overview: "Orthodontic care is not purely cosmetic — properly aligned teeth are significantly easier to clean, reduce abnormal wear on jaw joints (TMJ), and distribute chewing forces evenly. We offer invisible aligners, aesthetic ceramic braces, and self-ligating brackets.",
+    benefits: [
+      "Certified clear aligners — virtually invisible and removable for eating and brushing",
+      "Aesthetic tooth-colored ceramic brackets that blend with natural teeth",
+      "Digital 3D biomechanical setup predicting monthly progress",
+      "Treatment options tailored for working professionals, teens, and adults"
+    ],
+    suitableFor: [
+      "Teeth crowding, overlapping, crossbites, overbites, or open bites",
+      "Spacing and gaps between front or back teeth",
+      "Adults wanting discreet alignment without conspicuous metal brackets"
+    ],
+    faqs: [
+      {
+        question: "Can adults get their teeth straightened?",
+        answer: "Absolutely! Over 40% of our orthodontic patients are adults. Healthy teeth can be moved at any age with biological orthodontic force."
+      },
+      {
+        question: "How long will I need to wear aligners each day?",
+        answer: "Clear aligners must be worn 20 to 22 hours per day, removing them only when eating, drinking warm beverages, or brushing."
+      }
+    ],
+    status: "active"
+  },
+  {
+    id: "srv-6",
+    serviceName: "Pediatric Dentistry",
+    slug: "pediatric-dentistry",
+    tagline: "Gentle, stress-free & cheerful dental care for infants and kids",
+    shortDescription: "A child-friendly environment focused on preventive habits, painless milk tooth restorations, fluoride treatments, and habit counseling.",
+    indicativePrice: "₹1,199",
+    image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=1000",
+    overview: "Children require special psychological and clinical consideration. Our pediatric care focuses on creating positive dental associations that last a lifetime, emphasizing early prevention, dietary advice, and gentle habit modification.",
+    benefits: [
+      "Playful 'Tell-Show-Do' communicative approach preventing dental phobia",
+      "Preventive pit and fissure sealants safeguarding chewing surfaces against decay",
+      "Fluoride varnish therapies strengthening growing dental enamel",
+      "Thumb-sucking and mouth-breathing interceptive guidance"
+    ],
+    suitableFor: [
+      "Children age 1 year and older for their first dental milestone check",
+      "Toddlers with early childhood caries (nursing bottle decay)",
+      "Kids needing habit-breaking appliances or space maintainers"
+    ],
+    faqs: [
+      {
+        question: "Why treat baby teeth if they will fall out anyway?",
+        answer: "Baby teeth guide permanent teeth into their correct positions, facilitate speech, and allow proper nutrition. Neglected infections in milk teeth can damage underlying permanent teeth."
+      },
+      {
+        question: "At what age should my child first see a dentist?",
+        answer: "The Indian Dental Association recommends the first dental visit by the appearance of the first tooth or by their first birthday."
+      }
+    ],
+    status: "active"
+  },
+  {
+    id: "srv-7",
+    serviceName: "Teeth Whitening",
+    slug: "teeth-whitening",
+    tagline: "In-office LED laser whitening & customized take-home systems",
+    shortDescription: "Safely lift stubborn stains caused by tea, coffee, smoking, and age with clinical-grade enamel-safe whitening.",
+    indicativePrice: "₹5,499",
+    image: "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&q=80&w=1000",
+    overview: "Our in-office LED activation whitening system safely breaks down chromatic organic stains deep within tooth enamel without damaging micro-structural tooth integrity or causing long-term sensitivity.",
+    benefits: [
+      "Up to 5 to 7 shades lighter in a single 45-minute clinic session",
+      "Gingival barrier protection ensuring zero gum irritation",
+      "Integrated desensitizing agents preventing post-treatment discomfort",
+      "Custom take-home maintenance trays included"
+    ],
+    suitableFor: [
+      "Discoloration from daily chai, coffee, turmeric, or tobacco",
+      "Upcoming wedding, corporate interview, or milestone celebration",
+      "Age-related yellowing of enamel"
+    ],
+    faqs: [
+      {
+        question: "Does teeth whitening damage tooth enamel?",
+        answer: "No. Professional dental whitening formulas contain pH-balanced peroxide that oxidizes pigments without stripping enamel minerals."
+      },
+      {
+        question: "How long do teeth whitening results last?",
+        answer: "Results typically last 1 to 2 years, depending on dietary habits such as tea/coffee consumption and oral hygiene practices."
+      }
+    ],
+    status: "active"
+  },
+  {
+    id: "srv-8",
+    serviceName: "Dental Cleaning & Polishing",
+    slug: "dental-cleaning",
+    tagline: "Ultrasonic scaling, stain removal & deep periodontal prophylaxis",
+    shortDescription: "Gentle ultrasonic removal of stubborn tartar (calculus), plaque biofilm, and surface stains to preserve healthy pink gums.",
+    indicativePrice: "₹1,499",
+    image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&q=80&w=1000",
+    overview: "Even with diligent daily brushing and flossing, mineralized tartar deposits accumulate along the gumline. Professional ultrasonic prophylaxis removes these bacterial reservoirs, preventing bleeding gums, bad breath, and bone loss.",
+    benefits: [
+      "Piezoelectric ultrasonic scaler tips for gentle, vibration-only cleaning without scratching enamel",
+      "Prophy-jet air polishing removing stubborn tea and smoke stains effortlessly",
+      "Bad breath (halitosis) eradication and fresher oral feel",
+      "Strengthens gums and prevents periodontitis-induced tooth mobility"
+    ],
+    suitableFor: [
+      "Every adult and teenager once every 6 months as part of preventive wellness",
+      "Patients with bleeding gums during brushing",
+      "Smokers and regular tea/coffee drinkers"
+    ],
+    faqs: [
+      {
+        question: "Does scaling loosen teeth or create gaps?",
+        answer: "No, this is a common myth. Scaling removes hardened tartar that was artificially holding inflamed gums open. Once cleaned, healthy gums reattach tightly to the teeth."
+      },
+      {
+        question: "Is dental cleaning painful?",
+        answer: "Modern ultrasonic scalers utilize gentle micro-vibrations and water cooling, making the procedure very comfortable for most patients."
+      }
+    ],
+    status: "active"
+  }
+];
+
+export const initialCaseStudies: CaseStudy[] = [
+  {
+    id: "cs-1",
+    title: "Smile Makeover with Porcelain Veneers",
+    treatment: "Cosmetic Dentistry",
+    doctor: "Dr. Priya Deshmukh",
+    duration: "2 Weeks (2 Appointments)",
+    description: "A 29-year-old corporate consultant from Pune wanted to correct discolored front teeth with mild spacing and uneven incisal edges prior to her wedding. We designed 6 hand-crafted ceramic veneers that restored proportional balance and enhanced her natural facial aesthetics.",
+    beforeImage: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=800",
+    afterImage: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&q=80&w=800",
+    keyMetrics: [
+      { label: "Shades Brightened", value: "+5 Shades" },
+      { label: "Incisal Symmetry", value: "100%" },
+      { label: "Patient Satisfaction", value: "10/10" }
+    ],
+    quote: "I used to hide my smile in client meetings and photos. The veneers Dr. Priya placed look so incredibly natural that people just think I have great genetics!"
+  },
+  {
+    id: "cs-2",
+    title: "Immediate Load Dental Implants",
+    treatment: "Dental Implants",
+    doctor: "Dr. Rohit Patil",
+    duration: "12 Weeks Total",
+    description: "A 52-year-old school principal had lost two upper molars due to chronic infection, severely hindering chewing ability. Following computer-guided surgical 3D planning, two medical-grade titanium implants with monolithic zirconia crowns were placed, restoring 100% chewing function.",
+    beforeImage: "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&q=80&w=800",
+    afterImage: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=800",
+    keyMetrics: [
+      { label: "Bite Efficiency Restored", value: "98%" },
+      { label: "Bone Integration", value: "100%" },
+      { label: "Healing Time", value: "10 Weeks" }
+    ],
+    quote: "Dr. Rohit made the implant process completely stress-free. I can now eat almonds, bhakri, and solid foods without second thought."
+  },
+  {
+    id: "cs-3",
+    title: "Discreet Clear Aligner Crowding Correction",
+    treatment: "Orthodontics & Braces",
+    doctor: "Dr. Sneha Kulkarni",
+    duration: "9 Months",
+    description: "A 24-year-old software engineer in Pune presented with severe anterior lower crowding and an uneven upper arch. Using customized invisible aligners changed every 10 days, we achieved ideal arch alignment without removing any healthy premolars.",
+    beforeImage: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=800",
+    afterImage: "https://images.unsplash.com/photo-1594824813587-8c4656ec236b?auto=format&fit=crop&q=80&w=800",
+    keyMetrics: [
+      { label: "Aligner Sets Used", value: "24 Trays" },
+      { label: "Tooth Extractions", value: "0 Extractions" },
+      { label: "Arch Expansion", value: "+3.2 mm" }
+    ],
+    quote: "None of my colleagues at office even noticed I was wearing aligners. Truly magical transformation in 9 months."
+  }
+];
+
+export const initialTestimonials: Testimonial[] = [
+  {
+    id: "t-1",
+    name: "Ananya Joshi",
+    location: "Kalyani Nagar, Pune",
+    rating: 5,
+    treatment: "Cosmetic Veneers & Cleaning",
+    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400",
+    review: "The clinic was exceptionally clean and welcoming. Dr. Priya and the team explained every step of my treatment clearly on an intraoral screen before touching a tooth. The gentle approach made the entire experience completely stress-free.",
+    date: "October 2026"
+  },
+  {
+    id: "t-2",
+    name: "Rahul Patil",
+    location: "Kalyani Nagar, Pune",
+    rating: 5,
+    treatment: "Dental Implant & Crown",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400",
+    review: "Very professional service and a reassuring team. The digital 3D implant planning was impressive, and the procedure was finished without any discomfort. Transparent pricing with zero hidden surprises.",
+    date: "September 2026"
+  },
+  {
+    id: "t-3",
+    name: "Aisha Shaikh",
+    location: "Koregaon Park, Pune",
+    rating: 5,
+    treatment: "Clear Aligners",
+    avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=400",
+    review: "I appreciated the personalized attention throughout my 9-month aligner treatment. Dr. Sneha was always patient, attentive, and punctual. The clinic has a boutique aesthetic and calm atmosphere that feels more like a wellness retreat.",
+    date: "November 2026"
+  },
+  {
+    id: "t-4",
+    name: "Vikram Rao",
+    location: "Viman Nagar, Pune",
+    rating: 5,
+    treatment: "Single-Sitting Root Canal",
+    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=400",
+    review: "I walked in with severe acute toothache on a busy Saturday. The clinic accommodated me promptly, and the rotary root canal was painless. Within hours the agonizing throbbing was gone. Truly exceptional clinical care.",
+    date: "August 2026"
+  }
+];
+
+export const initialBlogs: BlogPost[] = [
+  {
+    id: "blog-1",
+    title: "Why Regular Dental Check-Ups Matter More Than You Think",
+    slug: "why-regular-dental-check-ups-matter",
+    category: "Preventive Care",
+    author: "Dr. Priya Deshmukh",
+    readTime: "4 min read",
+    publicationDate: "November 04, 2026",
+    featuredImage: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&q=80&w=1000",
+    excerpt: "Most dental issues like silent enamel demineralization and gingivitis progress without noticeable pain until advanced. Discover how 6-month check-ups safeguard your health and wallet.",
+    content: `
+Many patients believe that if their teeth don't hurt, there is no pressing reason to visit a dental clinic. However, in dentistry, pain is notoriously late to arrive. By the time a tooth begins throbbing, decay has typically penetrated through the hard outer enamel, passed the sensitive dentin, and infiltrated the delicate inner nerve pulp.
+
+### 1. The Asymptomatic Nature of Early Decay
+Enamel contains no nerve fibers. When plaque bacteria produce acids from carbohydrates, the microscopic mineral loss happens silently. Routine clinical examination coupled with digital low-radiation bitewing radiographs detects interdental decay years before it causes a cavity that requires a root canal.
+
+### 2. Periodontal Health and Systemic Well-being
+Modern clinical science demonstrates undeniable links between chronic periodontal (gum) inflammation and systemic diseases, including cardiovascular issues, diabetes management, and rheumatoid conditions. Professional ultrasonic scaling removes calculus deposits that brushing simply cannot dislodge.
+
+### 3. Oral Cancer Screenings
+During every check-up at Nivara Dental Studio, our dentists conduct a methodical soft tissue screening of the tongue, inner cheeks, and palate. Early detection of mucosal anomalies is the single most effective safeguard for your health.
+    `
+  },
+  {
+    id: "blog-2",
+    title: "Simple Daily Habits for Healthier Teeth and Gums in Indian Diets",
+    slug: "simple-habits-healthier-teeth-gums",
+    category: "Oral Hygiene",
+    author: "Dr. Sneha Kulkarni",
+    readTime: "5 min read",
+    publicationDate: "October 22, 2026",
+    featuredImage: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=1000",
+    excerpt: "From chai consumption to starchy snacks, our dietary habits influence oral pH. Learn practical daily routines that prevent staining and protect enamel.",
+    content: `
+Indian cuisine is celebrated worldwide for its vibrant spices, aromatic gravies, and rich comforting flavors. However, regular consumption of sweet chai, sticky sweets (mithai), and turmeric-rich dishes requires thoughtful oral hygiene strategies.
+
+### 1. The Post-Chai Rinse Routine
+Chai often combines sugar, milk proteins, and tannic acids. If chai sits on tooth surfaces for hours between meals, it accelerates enamel demineralization. A simple, vigorous water rinse immediately after drinking chai neutralizes oral pH effectively.
+
+### 2. The 2-Minute Soft-Bristle Technique
+Hard bristles and aggressive horizontal scrubbing do not clean teeth better — they cause gingival recession and cervical enamel abrasion. Use a soft or ultra-soft bristle brush, angled at 45 degrees towards the gumline, using gentle circular micro-sweeps.
+
+### 3. Nighttime Flossing is Non-Negotiable
+Brushing only cleans 60% of tooth surfaces. The remaining 40% lies tight between adjacent teeth where food debris feeds anaerobic bacteria overnight. Using dental floss or an interdental brush once every evening prevents hidden proximal cavities.
+    `
+  },
+  {
+    id: "blog-3",
+    title: "What to Know Before Choosing Dental Implants: A Comprehensive Guide",
+    slug: "what-to-know-before-choosing-dental-implants",
+    category: "Dental Implants",
+    author: "Dr. Rohit Patil",
+    readTime: "6 min read",
+    publicationDate: "October 10, 2026",
+    featuredImage: "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&q=80&w=1000",
+    excerpt: "Considering a dental implant? Here is what you need to know about bone density, computer-guided surgical 3D planning, materials, and long-term care.",
+    content: `
+Losing a permanent tooth affects more than your appearance; it initiates gradual jawbone resorption and causes neighboring teeth to drift into empty spaces, upsetting your bite alignment.
+
+### Why Implants Outperform Traditional Dental Bridges
+Historically, replacing a missing tooth required cutting down two healthy neighboring teeth to anchor a dental bridge. A dental implant, by contrast, is completely standalone. It preserves adjacent healthy teeth and stimulates natural jawbone preservation.
+
+### The Role of 3D CBCT Imaging
+At Nivara Dental Studio, we never place implants through guesswork. High-resolution 3D Cone Beam Computed Tomography (CBCT) scans reveal the exact three-dimensional height, width, and density of your bone, alongside nerve canals and sinus cavities. This allows computer-guided surgical precision with minimal incision size and rapid healing.
+
+### Longevity and Maintenance
+Medical titanium implants possess success rates exceeding 95% over decades when cared for with proper brushing, flossing, and regular professional prophylaxis.
+    `
+  }
+];
+
+export const initialPricing: PricingPlan[] = [
+  {
+    id: "pkg-1",
+    name: "Basic Dental Care",
+    price: "₹999",
+    billing: "Starting at / initial visit",
+    popular: false,
+    badge: "Essential Check",
+    description: "Ideal for routine oral health assessments, initial diagnosis, and guidance on preventive care.",
+    features: [
+      "Comprehensive clinical dental examination",
+      "Full digital intraoral camera scan",
+      "Detailed cavity and gum health status check",
+      "Personalized treatment plan & cost breakdown",
+      "Oral hygiene & preventive diet counseling"
+    ],
+    ctaText: "Book Basic Consultation",
+    ctaLink: "/book-appointment?package=basic"
+  },
+  {
+    id: "pkg-2",
+    name: "Advanced Dental Care",
+    price: "₹2,499",
+    billing: "Starting at / per package",
+    popular: true,
+    badge: "Most Popular",
+    description: "Thorough diagnostic package including digital imaging and ultrasonic prophylaxis for healthier gums.",
+    features: [
+      "Everything in Basic Dental Care",
+      "High-precision digital radiographic imaging (RVG)",
+      "Full mouth ultrasonic scaling & stain removal",
+      "Enamel polishing with fluoridated prophy-paste",
+      "Sensitivity protection desensitizing treatment",
+      "1 complimentary follow-up review (within 30 days)"
+    ],
+    ctaText: "Book Advanced Care",
+    ctaLink: "/book-appointment?package=advanced"
+  },
+  {
+    id: "pkg-3",
+    name: "Premium Dental Care",
+    price: "₹5,999",
+    billing: "Starting at / comprehensive",
+    popular: false,
+    badge: "Full Smile Wellness",
+    description: "Complete wellness package including professional in-chair teeth polishing, fluoride, and cosmetic analysis.",
+    features: [
+      "Everything in Advanced Dental Care",
+      "Comprehensive Digital Smile Design (DSD) analysis",
+      "In-office enamel whitening & stain lifting session",
+      "Topical high-concentration fluoride varnish therapy",
+      "Dedicated senior specialist consultation (MDS)",
+      "Priority appointment booking & extended follow-up"
+    ],
+    ctaText: "Book Premium Wellness",
+    ctaLink: "/book-appointment?package=premium"
+  }
+];
